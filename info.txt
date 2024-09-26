@@ -1,0 +1,47 @@
+Database 'MovieLens' does not exist. Make sure that the name is entered correctly
+> USE master;
+> go
+Changed database context to 'master'.
+> CREATE DATABASE MovieLens;
+> go
+> USE MovieLens;
+> go
+Changed database context to 'MovieLens'
+> CREATE TABLE Ratings (
+> UserId INT,
+> MovieId INT,
+> Rating FLOAT,
+> Timestamp INT
+>);
+> go
+CREATE TABLE Movies (
+Movield INT,
+> Title NVARCHAR(255),
+Release Date NVARCHAR(255),
+VideoReleaseDate NVARCHAR(255),
+IMDbUrl NVARCHAR(255),
+> Genre NVARCHAR(255)
+>);
+> go
+CREATE TABLE Users (
+UserId INT,
+> Gender CHAR(1),
+> Age INT,
+> Occupation INT,
+> ZipCode NVARCHAR(10)
+>);
+> go
+
+------------------------------------------------------------------------------
+BULK INSERT Movies
+FROM '/var/opt/mssql/backup/u.item'
+WITH (
+FIELDTERMINATOR = ,'ו'
+ROWTERMINATOR = '\n'
+);
+go
+-----------------------------------------------------------------------------------
+USE MovieLens;
+go
+SELECT TOP 10 FROM Ratings;
+go
